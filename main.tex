@@ -55,9 +55,9 @@
 \renewcommand{\glstextformat}[1]{\textit{#1}}
 
 % Title Page
-\title{Document Title}
-\author{Author Name}
-\date{\today \\Subtitle 1 \\Subtitle 2}
+\title{IoT soil moisture monitoring to predict irrigation needs of outdoor crops}
+\author{Niklas Mezynski}
+\date{\today \\A research conducted for the minor A-Systems \\Venlo, Limburg, Netherlands}
 
 \begin{document}
 \maketitle
@@ -68,7 +68,7 @@
 
 \pagenumbering{gobble}
 
-\setcounter{tocdepth}{3} % Sets the depth for the table of contents
+\setcounter{tocdepth}{3}
 \tableofcontents
 \newpage
 
@@ -81,15 +81,17 @@
 \printnoidxglossaries
 \cleardoublepage
 \pagenumbering{arabic}
+\setcounter{section}{1}
 
 \section{Introduction}
-Introduction.
+\subsection{Context}
+Soil moisture monitoring is a crucial aspect of modern agriculture. The accurate monitoring of soil moisture levels can improve crop yields, save water, and increase efficiency. Currently, many farmers use manual methods to monitor soil moisture levels, which can be time-consuming and imprecise. In recent years, IoT sensors have been developed, which can provide real-time data on soil moisture levels~\parencite{bwambale2022smart}.
+\newline Although there are various sensors already being used in modern agriculture, it is not clear which sensor is the most accurate and effective for different soil types, crop types, and environmental conditions. Additionally, the integration of weather data in irrigation scheduling is often not being considered~\parencite{nandurkar2014design}.
+\newline Moreover, the traditional manual methods of monitoring soil moisture levels and irrigation scheduling are labor-intensive, time-consuming, and often based on assumptions rather than actual data. This results in excessive water usage, which not only wastes a valuable resource but also impacts the environment negatively~\parencite{bwambale2022smart}.
+\newline Therefore, the lack of an accurate and efficient system for monitoring soil moisture levels and predicting crop irrigation needs results in a significant gap in knowledge in the agricultural industry. Through this research project, the aim is to develop a cloud-based application that can accurately monitor soil moisture levels, integrate weather data, and predict crop irrigation needs.
 
-\section{Main part}
-Main part.
+\subsection{Sensors}
 
-\section{Conclusion}
-Conclusion.
 
 \printbibliography[title=References]
 \end{document}
