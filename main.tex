@@ -1,74 +1,47 @@
-\documentclass[]{report}
-\setcounter{secnumdepth}{3}
-\renewcommand\thesection{\arabic{section}}%for page numbering style
-\usepackage{graphicx,tabularx}%for figures and tables
-\usepackage[utf8]{inputenc} %allows special characters such as ä, ö, ỳ
-\usepackage[english]{babel} %set the language to English
-\usepackage[margin=1.5in]{geometry} %change page margins
-\usepackage{sectsty}%section headers
-\allsectionsfont{\sffamily\large}
-\subsectionfont{\sffamily\normalsize}
-\subsubsectionfont{\sffamily\normalsize}
-\linespread{1.2}% line distance
-\usepackage{lipsum}% http://ctan.org/pkg/lipsum
-\usepackage{caption}%use for captions on tables
-\usepackage{float}
-\usepackage{xstring}
-\usepackage{pdfpages}
-\usepackage{wrapfig}
-\usepackage{hyperref}
-\usepackage{longtable}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
 
-%use this exact command. The style and bibliographystyle has to be author year (Harvard). The sorting is nyt: name, year, title so that the bibliography is sorted alphabetically. firstInits=true shortens the names: Albert Einstein -> A. Einstein
-\usepackage[backend=bibtex,style=authoryear,bibstyle=authoryear,sorting=nyt,firstinits=true,uniquename=init]{biblatex}
-% Declare custom cite command for personal communication (optional)
-\DeclareAutoCiteCommand{inline}{\mycite}{\cites}
-\DeclareCiteCommand{\mycite}
- {}{\ifentrytype{misc}{%
- \IfStrEq{\thefield{howpublished}}{personal communication}
- {\mkbibparens{\printnames{labelname}, personal communication, \printdate}}
- {\mkbibparens{\usebibmacro{cite}}}%
- }
- {\mkbibparens{\usebibmacro{cite}}}%
- }{}{}
-% End of custom cite command
+\documentclass[11pt]{scrartcl} % Font size
 
-\usepackage{csquotes}
-\setlength\parindent{0pt}%include this so that your paragraphs don't indent automatically
+\input{structure.tex} % Include the file specifying the document structure and custom commands
 
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+\addbibresource{main.bib}
 
-\usepackage{glossaries}
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
 
-\usepackage{titlesec}
-\setcounter{secnumdepth}{4}
+\title{	
+	\normalfont\normalsize
+	\textsc{Fontys University of Applied Sciences \\A research conducted for the minor A-Systems}\\ % Your university, school and/or department name(s)
+	\vspace{25pt} % Whitespace
+	\rule{\linewidth}{0.5pt}\\ % Thin top horizontal rule
+	\vspace{20pt} % Whitespace
+	{\huge IoT soil moisture monitoring to predict irrigation needs of outdoor crops}\\ % The assignment title
+	\vspace{12pt} % Whitespace
+	\rule{\linewidth}{2pt}\\ % Thick bottom horizontal rule
+	\vspace{12pt} % Whitespace
+}
 
-\addbibresource{main.bib} %attaches your bib-file, your bibliography (must be in the same folder)
-\graphicspath{ {./assets/} }
+\author{\LARGE Niklas Mezynski} % Your name
 
-% Make glossaries
-\makenoidxglossaries
-\usepackage{pages/dict}
-
-% Makes the text of glossary entries italic
-\renewcommand{\glstextformat}[1]{\textit{#1}}
-
-% Title Page
-\title{IoT soil moisture monitoring to predict irrigation needs of outdoor crops}
-\author{Niklas Mezynski}
-\date{\today \\A research conducted for the minor A-Systems \\Venlo, Limburg, Netherlands}
+\date{\normalsize\today} % Today's date (\today) or a custom date
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-    Your abstract.
-\end{abstract}
+\maketitle % Print the title
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	ToC and page/section numbering
+%----------------------------------------------------------------------------------------
 
 \pagenumbering{gobble}
 
-\setcounter{tocdepth}{3}
+% Table of contents depth of contents
+\setcounter{tocdepth}{2}
 \tableofcontents
 \newpage
 
@@ -83,15 +56,55 @@
 \pagenumbering{arabic}
 \setcounter{section}{1}
 
+%----------------------------------------------------------------------------------------
+%	BEGIN CONTENT
+%----------------------------------------------------------------------------------------
+
 \section{Introduction}
-\subsection{Context}
+\subsection{Background and context}
 Soil moisture monitoring is a crucial aspect of modern agriculture. The accurate monitoring of soil moisture levels can improve crop yields, save water, and increase efficiency. Currently, many farmers use manual methods to monitor soil moisture levels, which can be time-consuming and imprecise. In recent years, IoT sensors have been developed, which can provide real-time data on soil moisture levels~\parencite{bwambale2022smart}.
 \newline Although there are various sensors already being used in modern agriculture, it is not clear which sensor is the most accurate and effective for different soil types, crop types, and environmental conditions. Additionally, the integration of weather data in irrigation scheduling is often not being considered~\parencite{nandurkar2014design}.
 \newline Moreover, the traditional manual methods of monitoring soil moisture levels and irrigation scheduling are labor-intensive, time-consuming, and often based on assumptions rather than actual data. This results in excessive water usage, which not only wastes a valuable resource but also impacts the environment negatively~\parencite{bwambale2022smart}.
 \newline Therefore, the lack of an accurate and efficient system for monitoring soil moisture levels and predicting crop irrigation needs results in a significant gap in knowledge in the agricultural industry. Through this research project, the aim is to develop a cloud-based application that can accurately monitor soil moisture levels, integrate weather data, and predict crop irrigation needs.
 
-\subsection{Sensors}
+\subsection{Research questions and objectives}
+\subsection{Overview of the experiment and methods}
+
+\section{Literature review}
+\subsection{IoT sensors and their applications in agriculture}
+Agriculture is facing huge challenges as a result of population growth and climate change. It is critical to establish sustainable techniques in order to meet the demands for food production. IoT sensors, for example, have the potential to change agriculture and address these difficulties. The use of IoT sensors and wireless sensor networks into agriculture has created new prospects for precision farming and resource optimization.~\parencite{capacitive_sensors_for_irrigation_and_disease}
+\newline A smart irrigation system was presented in one study that used IoT and machine learning to offer correct irrigation to plants. The technology lowered water consumption by 46\% while enhancing plant health. Another study built a low-power and scalable IoT-based architecture to monitor soil moisture and temperature for home farmers and scientific applications. The measured data was sent to a cloud platform for processing, providing home farmers with critical information to improve crop efficiency and reduce crop failure. The study's hardware and software architecture were designed to require less power, making it an efficient and cost-effective solution.~\parencites{precision_irrigation_iot}{capacitive_sensors_for_irrigation_and_disease}
+\newline The application of IoT sensors in agriculture has also demonstrated promise in smart farming and precision agriculture. Sensors can be used to detect illnesses, test NPK levels, and detect soil moisture content, among other things. Smart farming optimizes traditional farming processes by utilizing precise information to make informed decisions. Control and supervision, safety, warning, diagnostics, and analytics are all applications of IoT sensors in agriculture, making it more effective and trouble-free.~\parencite{iot_and_sensors_in_agriculture_general}
+\newline Finally, IoT sensors provide several benefits to agriculture, including reduced water usage, increased efficiency, fewer crop failures, and improved yield. As the world population expands and food demand rises, the use of IoT and sensor networks in agriculture will become even more vital in order to provide food for everyone in a sustainable manner.\parencite{capacitive_sensors_for_irrigation_and_disease,bwambale2022smart}
+\newline There could be numerous reasons for the low number of real-world uses of soil moisture sensors in open fields. One issue is the high cost and complexity of sensor installation and maintenance, which can be too expensive for many farmers. Furthermore, there may be a lack of understanding and education regarding the benefits of employing soil moisture sensors, as well as the best practices for using them. Finally, regulatory and policy constraints may exist that limit the deployment of certain technologies in specific regions or countries. More study is required to overcome these issues and promote the wider use of IoT sensors for sustainable agriculture practices.
 
 
+\subsection{Cloud computing and monitoring in agriculture}
+\subsection{Algorithms for predicting crop irrigation needs using soil moisture and weather data}
+\section{Experiment}
+\subsection{Design and setup}
+\subsubsection{Sensors}
+% Still needs sources
+Capacitive soil moisture sensors are a common type of sensor for measuring soil moisture levels. Capacitive sensors, as opposed to other sensors that measure moisture based on resistance, rely on the electrical capacitance of the soil, which changes with soil moisture content, allowing the sensor to measure the soil moisture level.
+\newline The accuracy of capacitive soil moisture sensors is one of their key advantages. They are quite precise, even in soils with variable compositions. They are also reasonably inexpensive and simple to install, making them a viable option for sensing soil moisture in wide regions. Furthermore, they are unaffected by the presence of salts or other substances in the soil, which might impair the accuracy of other types of sensors.
+\newline For various reasons, using capacitive soil moisture sensors to measure crop water needs is a wise choice. For starters, they provide a more accurate and consistent measurement of soil moisture levels, which is critical for proper irrigation control. Second, they enable farmers to optimize water usage and prevent water waste by ensuring crops receive the appropriate amount of water at the appropriate time. This can lead to higher crop yields and lower water usage, making it a viable solution for modern agriculture. Overall, capacitive soil moisture sensors are an efficient tool for crop irrigation management, and their application can result in major benefits for both farmers and the environment.
+\subsection{Data collection and analysis}
+\section{Results}
+\subsection{Overview of the collected data}
+\subsection{Correlation analysis between weather data and soil moisture}
+\subsection{Comparison between cloud-based irrigation scheduling and traditional manual methods}
+\section{Discussion}
+\subsection{Implications of the results for precision agriculture and water management}
+\subsection{Limitations of the experiment and possible improvements}
+\subsection{Future directions for research}
+\section{Conclusion}
+\subsection{Summary of the research questions and objectives}
+\subsection{Contributions of the study to the field}
+\subsection{Final remarks and recommendations}
+
+
+\newpage
 \printbibliography[title=References]
 \end{document}
+
+
