@@ -74,7 +74,17 @@ Soil moisture monitoring is a crucial aspect of modern agriculture. The accurate
 \newline Therefore, the lack of an accurate and efficient system for monitoring soil moisture levels and predicting crop irrigation needs results in a significant gap in knowledge in the agricultural industry. Through this research project, the aim is to develop a cloud-based application that can accurately monitor soil moisture levels, integrate weather data, and predict crop irrigation needs.
 
 \subsection{Research questions and objectives}
+This study's research question seeks to investigate the efficacy of a cloud-based application that integrates real-time soil moisture and weather data in predicting the irrigation needs of outdoor crops, as well as how it compares to traditional manual irrigation scheduling methods. The study has identified several theoretical learning objectives to accomplish this.
+\newline Understanding the principles of IoT sensors and their applications in agriculture, the basics of cloud computing and monitoring and their applications in agriculture, exploring algorithms for predicting crop irrigation needs using soil moisture and weather data, finding a correlation between certain weather data parameters and changes in soil moisture levels to make predictions, and developing a cloud-based monitoring application that can make a decision are some of the objectives. The study's goal is to shed light on the efficacy of cloud-based applications and how they may be utilized to enhance crop irrigation, ultimately contributing to the development of sustainable and efficient agricultural practices.
 \subsection{Overview of the experiment and methods}
+The experiment will take place in an open field-like setting. The experiment will be divided into two phases. In the first phase, soil moisture levels will be monitored and data is collected using IoT sensors. In the second phase, the collected data will be used to develop a cloud-based application that can predict irrigation needs for outdoor crops. The experiment will take place over the course of four weeks. The first two weeks will be spent collecting data, and the following two weeks will be spent verifying the algorithm and its efficiency. The experiment will be carried out as follows:
+\begin{itemize}
+	\item The soil moisture levels will be monitored using IoT sensors.
+	\item The data will be collected and stored in a database.
+	\item The data will be analyzed to find a correlation between certain weather data parameters and change in soil moisture levels.
+	\item The data will be used to develop a cloud-based application that can predict irrigation needs of outdoor crops.
+	\item The algorithm will be verified and its efficiency will be tested.
+\end{itemize}
 
 \section{Literature review}
 \subsection{IoT sensors and their applications in agriculture}
@@ -90,14 +100,36 @@ A 2019 study explores the development of a networking application system for mod
 \newline Currently, Internet of Things-related technologies and products are becoming more mature, and the associated software and hardware facilities, technical standards, and transmission protocols are being gradually upgraded. These mature hardware and software solutions are used in agricultural production for data collection, transmission, storage, processing, feedback, and control.~\parencite{cloud_computing_and_monitoring}
 \newline The study focuses on the advantages of cloud computing in the Internet of Things. The cloud platform provides an easy sensing data transmission interface for the sensing device, and the user can easily transmit data acquired by the sensor to the cloud platform. The cloud platform stores, analyzes, and processes data, as well as providing informative feedback based on user-defined decision rules. Users can also use the platform for equipment administration, data inquiry, visualization, warning, information push, and other operations via a web interface or mobile app. The cloud services platform improves the security, stability, and low-cost operation of the necessary applications, allowing developers to focus on application development.~\parencite{cloud_computing_and_monitoring}
 \subsection{Algorithms for predicting crop irrigation needs using soil moisture and weather data}
+% A study was conducted to develop a model for predicting crop irrigation needs using soil moisture and weather data. The study used a neural network model to predict the irrigation needs of a crop. The model was trained using data from a soil moisture sensor and weather data from a weather station. The model was then used to predict the irrigation needs of a crop. The model was able to predict the irrigation needs of a crop with an accuracy of 95\%.~\parencite{crop_irrigation_needs_prediction}
+
 \section{Experiment}
 \subsection{Design and setup}
+The first stage of the experiment is dedicated to data collection. For the experiment, a few salad crops are planted in a pot that is set outside in the open air to allow rain, sun, and other weather factors to fully affect them. In addition, a soil moisture sensor (Section~\ref{sec:sensors}) linked to an ESP32 is embedded in the soil. The setup can be seen in Figure~\ref{fig:experiment_setup}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=5cm]{setup.jpg}
+	\caption{Experiment setup}
+	\label{fig:experiment_setup}
+\end{figure}
+The data is gathered from the soil moisture sensor and wirelessly transmitted to a web server, where it is kept in a database with current meteorological data obtained from an API. The information gathered will subsequently be utilized to train a machine learning model that will forecast the crop's irrigation requirements. Section~\ref{sec:data_collection} explains how the data is visualized on a web page.
+
 \subsubsection{Sensors}
+\label{sec:sensors}
 % Still needs sources
 Capacitive soil moisture sensors are a common type of sensor for measuring soil moisture levels. Capacitive sensors, as opposed to other sensors that measure moisture based on resistance, rely on the electrical capacitance of the soil, which changes with soil moisture content, allowing the sensor to measure the soil moisture level.
 \newline The accuracy of capacitive soil moisture sensors is one of their key advantages. They are quite precise, even in soils with variable compositions. They are also reasonably inexpensive and simple to install, making them a viable option for sensing soil moisture in wide regions. Furthermore, they are unaffected by the presence of salts or other substances in the soil, which might impair the accuracy of other types of sensors.
 \newline For various reasons, using capacitive soil moisture sensors to measure crop water needs is a wise choice. For starters, they provide a more accurate and consistent measurement of soil moisture levels, which is critical for proper irrigation control. Second, they enable farmers to optimize water usage and prevent water waste by ensuring crops receive the appropriate amount of water at the appropriate time. This can lead to higher crop yields and lower water usage, making it a viable solution for modern agriculture. Overall, capacitive soil moisture sensors are an efficient tool for crop irrigation management, and their application can result in major benefits for both farmers and the environment.
 \subsection{Data collection and analysis}
+\label{sec:data_collection}
+In order to retrieve and store the sensor data, a cloud based system was developed using \gls{Nodejs}. It uses \gls{Expressjs} under the hood to expose RESTful API endpoints the ESP32 can use to send the data. The data is then stored in a \gls{Postgresql} database. The data is then visualized on a web page using \gls{Reactjs} and \gls{Chartjs}. The web page can be seen in Figure~\ref{fig:web_page}.
+Each time a new sensor value is received, the backend will also query the current weather data from the \gls{Weather API} API. This data is also stored in the database.
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=5cm]{setup.jpg}
+	\caption{Web page}
+	\label{fig:web_page}
+\end{figure}
+
 \section{Results}
 \subsection{Overview of the collected data}
 \subsection{Correlation analysis between weather data and soil moisture}

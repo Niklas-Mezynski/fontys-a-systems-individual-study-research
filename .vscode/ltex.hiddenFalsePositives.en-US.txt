@@ -1,3 +1,4 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qinline   howpublished personal communication labelname, personal communication,\\E$"}
 {"rule":"WHITESPACE_RULE","sentence":"^\\Qinline   howpublished personal communication labelname, personal communication,\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qinline   howpublished personal communication labelname, personal communication,\\E$"}
+{"rule":"SOME_OF_THE","sentence":"^\\QUnderstanding the principles of IoT sensors and their applications in agriculture, the basics of cloud computing and monitoring and their applications in agriculture, exploring algorithms for predicting crop irrigation needs using soil moisture and weather data, finding a correlation between certain weather data parameters and changes in soil moisture levels to make predictions, and developing a cloud-based monitoring application that can make a decision are some of the objectives.\\E$"}
