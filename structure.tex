@@ -47,9 +47,9 @@
 \linespread{1.2}% line distance
 
 % --------------- OPTIONAL ---------------------
-\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
-\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{equation}{subsection} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{subsection} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{subsection} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 % ----------------------------------------------
 
 %----------------------------------------------------------------------------------------
@@ -85,10 +85,22 @@
 
 \usepackage{sectsty} % Allows customising section commands
 
-\sectionfont{\vspace{6pt}\centering\normalfont\scshape} % \section{} styling
-\subsectionfont{\normalfont\bfseries} % \subsection{} styling
-\subsubsectionfont{\normalfont\itshape} % \subsubsection{} styling
-\paragraphfont{\normalfont\scshape} % \paragraph{} styling
+% \sectionfont{\vspace{6pt}\centering\normalfont\scshape} % \section{} styling
+\subsectionfont{\vspace{6pt}\centering\normalfont\scshape} % \section{} styling
+\subsubsectionfont{\normalfont\bfseries} % \subsection{} styling
+\paragraphfont{\normalfont\itshape} % \subsubsection{} styling
+
+% ----------------------------------------------------------------------------------------
+% 	CHANGE THAT SUBSECTIONS ARE THE MAIN SECTIONS
+% ----------------------------------------------------------------------------------------
+% Load the titlesec package
+\usepackage{titlesec}
+
+% Configure subsection numbering
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+% Remove section numbering
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0em}{}
 
 %----------------------------------------------------------------------------------------
 %	HEADERS AND FOOTERS
