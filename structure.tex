@@ -27,6 +27,10 @@
 \usepackage{wrapfig}
 \usepackage{hyperref}
 \usepackage{longtable}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Use 8-bit encoding
+
 \usepackage{csquotes}
 
 
@@ -74,9 +78,6 @@
 %	FONTS
 %----------------------------------------------------------------------------------------
 
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Use 8-bit encoding
-
 \usepackage{fourier} % Use the Adobe Utopia font for the document
 
 %----------------------------------------------------------------------------------------
@@ -120,7 +121,7 @@
 %	CITING STUFF
 %----------------------------------------------------------------------------------------
 %use this exact command. The style and bibliographystyle has to be author year (Harvard). The sorting is nyt: name, year, title so that the bibliography is sorted alphabetically. firstInits=true shortens the names: Albert Einstein -> A. Einstein
-\usepackage[backend=bibtex,style=authoryear,bibstyle=authoryear,sorting=nyt,firstinits=true,uniquename=init]{biblatex}
+\usepackage[backend=bibtex,style=numeric,bibstyle=numeric,sorting=nyt,firstinits=true,uniquename=init]{biblatex}
 % Declare custom cite command for personal communication (optional)
 \DeclareAutoCiteCommand{inline}{\mycite}{\cites}
 \DeclareCiteCommand{\mycite}

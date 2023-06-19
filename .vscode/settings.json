@@ -13,5 +13,12 @@
     "**/.git/objects/**",
     ".vscode"
   ],
-  "cSpell.words": ["connectionist", "Kickstarter", "Miele", "Oberhitze", "WIFI"]
+  "cSpell.words": [
+    "connectionist",
+    "Kickstarter",
+    "microcontroller",
+    "Miele",
+    "Oberhitze",
+    "WIFI"
+  ]
 }
